@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma de Comunicação Escolar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Ícones do Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Fonte moderna -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Plataforma de Comunicação Estratégica</h1>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#calendario"><i class="fas fa-calendar"></i> Calendário</a></li>
+                <li><a href="#regras"><i class="fas fa-file"></i> Regras</a></li>
+                <li><a href="#canal-aberto"><i class="fas fa-comments"></i> Canal Aberto</a></li>
+                <li><a id="theme-toggle"><i class="fas fa-sun"></i> Modo Claro</a></li> <!-- Toggle de tema -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seção 1: Página Inicial (Home) com animação -->
+        <section id="home" class="fade-in">
+            <div class="hero">
+                <h2>Bem-vindo à Nossa Plataforma!</h2>
+                <p>Promovendo transparência, previsibilidade e diálogo para uma escola mais unida e organizada.</p>
+            </div>
+            
+            <div class="card">
+                <h3><i class="fas fa-bell"></i> Aviso Mais Recente</h3>
+                <div id="aviso-recente"></div>
+            </div>
+            
+            <div class="card">
+                <h3><i class="fas fa-calendar-alt"></i> Próximos 3 Eventos</h3>
+                <ul id="proximos-eventos"></ul>
+            </div>
+        </section>
+
+        <!-- Seção 2: Calendário Oficial com grid interativo -->
+        <section id="calendario" class="fade-in">
+            <h2>Calendário Oficial</h2>
+            <p>Todos os anúncios são feitos com no mínimo 48h de antecedência.</p>
+            <div class="filter-container">
+                <label for="filtro-evento">Filtrar por tipo:</label>
+                <select id="filtro-evento">
+                    <option value="todos">Todos</option>
+                    <option value="prova">Prova</option>
+                    <option value="evento-cultural">Evento Cultural</option>
+                    <option value="reuniao">Reunião</option>
+                    <option value="feriado">Feriado</option>
+                </select>
+            </div>
+            <div id="calendario-grid" class="calendar-grid"></div> <!-- Novo grid de calendário -->
+            <ul id="calendario-eventos" class="event-list"></ul> <!-- Lista de eventos filtrados -->
+        </section>
+
+        <!-- Seção 3: Regras e Documentos com modal -->
+        <section id="regras" class="fade-in">
+            <h2>Regras e Documentos</h2>
+            <div class="card">
+                <p>Acesse as regras facilmente.</p>
+                <ul>
+                    <li><a href="#" onclick="openModal('Regimento Interno')">Regimento Interno</a></li>
+                    <li><a href="#" onclick="openModal('Normas de Convivência')">Normas de Convivência</a></li>
+                </ul>
+                <h3>Histórico de Mudanças</h3>
+                <ul id="historico-mudancas">
+                    <li>Mudança em 01/10/2023: Adição de regra sobre uso de celulares.</li>
+                    <li>Mudança em 15/09/2023: Atualização no horário de entrada.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção 4: Canal Aberto com formulário interativo -->
+        <section id="canal-aberto" class="fade-in">
+            <h2>Canal Aberto: Sua Voz Importa</h2>
+            <div class="card">
+                <p>Envie sugestões e veja o status delas.</p>
+                <form id="form-feedback">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" required>
+                    <span id="nome-error" class="error"></span>
+                    
+                    <label for="sugestao">Sugestão ou Feedback:</label>
+                    <textarea id="sugestao" required></textarea>
+                    <span id="sugestao-error" class="error"></span>
+                    
+                    <button type="submit">Enviar</button>
+                </form>
+                <h3>Status de Sugestões</h3>
+                <ul id="status-sugestoes">
+                    <li>Sugestão de novo bebedouro: Em Análise.</li>
+                    <li>Sugestão de horários flexíveis: Aprovada.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por Iniciativa Discente | © 2023</p>
+        <button id="back-to-top"><i class="fas fa-arrow-up"></i> Voltar ao Topo</button>
+    </footer>
+
+    <!-- Modal para detalhes -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-content">Conteúdo do documento aqui. Em uma versão real, exiba um PDF.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
