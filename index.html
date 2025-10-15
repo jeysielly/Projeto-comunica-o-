@@ -1,120 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Comunicação Escolar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Ícones do Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Fonte moderna -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comunica Escola — Plataforma de Comunicação</title>
+
+  <!-- Fonte & Ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Plataforma de Comunicação Estratégica</h1>
-        <nav>
-            <ul id="nav-menu">
-                <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
-                <li><a href="#calendario"><i class="fas fa-calendar"></i> Calendário</a></li>
-                <li><a href="#regras"><i class="fas fa-file"></i> Regras</a></li>
-                <li><a href="#canal-aberto"><i class="fas fa-comments"></i> Canal Aberto</a></li>
-                <li><a id="theme-toggle"><i class="fas fa-sun"></i> Modo Claro</a></li> <!-- Toggle de tema -->
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Seção 1: Página Inicial (Home) com animação -->
-        <section id="home" class="fade-in">
-            <div class="hero">
-                <h2>Bem-vindo à Nossa Plataforma!</h2>
-                <p>Promovendo transparência, previsibilidade e diálogo para uma escola mais unida e organizada.</p>
-            </div>
-            
-            <div class="card">
-                <h3><i class="fas fa-bell"></i> Aviso Mais Recente</h3>
-                <div id="aviso-recente"></div>
-            </div>
-            
-            <div class="card">
-                <h3><i class="fas fa-calendar-alt"></i> Próximos 3 Eventos</h3>
-                <ul id="proximos-eventos"></ul>
-            </div>
-        </section>
-
-        <!-- Seção 2: Calendário Oficial com grid interativo -->
-        <section id="calendario" class="fade-in">
-            <h2>Calendário Oficial</h2>
-            <p>Todos os anúncios são feitos com no mínimo 48h de antecedência.</p>
-            <div class="filter-container">
-                <label for="filtro-evento">Filtrar por tipo:</label>
-                <select id="filtro-evento">
-                    <option value="todos">Todos</option>
-                    <option value="prova">Prova</option>
-                    <option value="evento-cultural">Evento Cultural</option>
-                    <option value="reuniao">Reunião</option>
-                    <option value="feriado">Feriado</option>
-                </select>
-            </div>
-            <div id="calendario-grid" class="calendar-grid"></div> <!-- Novo grid de calendário -->
-            <ul id="calendario-eventos" class="event-list"></ul> <!-- Lista de eventos filtrados -->
-        </section>
-
-        <!-- Seção 3: Regras e Documentos com modal -->
-        <section id="regras" class="fade-in">
-            <h2>Regras e Documentos</h2>
-            <div class="card">
-                <p>Acesse as regras facilmente.</p>
-                <ul>
-                    <li><a href="#" onclick="openModal('Regimento Interno')">Regimento Interno</a></li>
-                    <li><a href="#" onclick="openModal('Normas de Convivência')">Normas de Convivência</a></li>
-                </ul>
-                <h3>Histórico de Mudanças</h3>
-                <ul id="historico-mudancas">
-                    <li>Mudança em 01/10/2023: Adição de regra sobre uso de celulares.</li>
-                    <li>Mudança em 15/09/2023: Atualização no horário de entrada.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Seção 4: Canal Aberto com formulário interativo -->
-        <section id="canal-aberto" class="fade-in">
-            <h2>Canal Aberto: Sua Voz Importa</h2>
-            <div class="card">
-                <p>Envie sugestões e veja o status delas.</p>
-                <form id="form-feedback">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" required>
-                    <span id="nome-error" class="error"></span>
-                    
-                    <label for="sugestao">Sugestão ou Feedback:</label>
-                    <textarea id="sugestao" required></textarea>
-                    <span id="sugestao-error" class="error"></span>
-                    
-                    <button type="submit">Enviar</button>
-                </form>
-                <h3>Status de Sugestões</h3>
-                <ul id="status-sugestoes">
-                    <li>Sugestão de novo bebedouro: Em Análise.</li>
-                    <li>Sugestão de horários flexíveis: Aprovada.</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>Desenvolvido por Iniciativa Discente | © 2023</p>
-        <button id="back-to-top"><i class="fas fa-arrow-up"></i> Voltar ao Topo</button>
-    </footer>
-
-    <!-- Modal para detalhes -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <h3 id="modal-title"></h3>
-            <p id="modal-content">Conteúdo do documento aqui. Em uma versão real, exiba um PDF.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo-mark" aria-hidden="true">🌿</div>
+        <div class="brand-text">
+          <h1>Comunica Escola</h1>
+          <p class="subtitle">Transparência, diálogo e organização</p>
         </div>
-    </div>
+      </div>
 
-    <script src="script.js"></script>
+      <nav aria-label="Navegação principal">
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="#home"><i class="fas fa-home" aria-hidden="true"></i><span>Início</span></a></li>
+          <li><a href="#calendario"><i class="fas fa-calendar" aria-hidden="true"></i><span>Calendário</span></a></li>
+          <li><a href="#regras"><i class="fas fa-file-alt" aria-hidden="true"></i><span>Regras</span></a></li>
+          <li><a href="#canal-aberto"><i class="fas fa-comments" aria-hidden="true"></i><span>Canal Aberto</span></a></li>
+          <li><a id="theme-toggle" role="button" aria-pressed="false"><i class="fas fa-sun" aria-hidden="true"></i><span>Modo Claro</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="section hero-section">
+      <div class="hero-card">
+        <div class="hero-content">
+          <h2>Bem-vindo à Comunica Escola</h2>
+          <p>Promovendo previsibilidade e diálogo — um canal simples para famílias, alunos e equipe escolar.</p>
+        </div>
+        <div class="hero-visual" aria-hidden="true"></div>
+      </div>
+
+      <div class="grid-2 mt-20">
+        <article class="card">
+          <h3><i class="fas fa-bell" aria-hidden="true"></i> Aviso Mais Recente</h3>
+          <div id="aviso-recente" class="card-body small-text">Carregando...</div>
+        </article>
+
+        <article class="card">
+          <h3><i class="fas fa-calendar-alt" aria-hidden="true"></i> Próximos 3 Eventos</h3>
+          <ul id="proximos-eventos" class="list-compact"></ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- CALENDÁRIO -->
+    <section id="calendario" class="section">
+      <header class="section-header">
+        <h2>Calendário Oficial</h2>
+        <p class="small-text">Todos os anúncios são feitos com no mínimo 48h de antecedência.</p>
+      </header>
+
+      <div class="filter-row">
+        <label for="filtro-evento">Filtrar por tipo</label>
+        <select id="filtro-evento">
+          <option value="todos">Todos</option>
+          <option value="prova">Prova</option>
+          <option value="evento-cultural">Evento Cultural</option>
+          <option value="reuniao">Reunião</option>
+          <option value="feriado">Feriado</option>
+        </select>
+      </div>
+
+      <div id="calendario-grid" class="calendar-grid" aria-label="Calendário do mês"></div>
+      <ul id="calendario-eventos" class="event-list mt-12" aria-live="polite"></ul>
+    </section>
+
+    <!-- REGRAS -->
+    <section id="regras" class="section">
+      <header class="section-header">
+        <h2>Regras e Documentos</h2>
+        <p class="small-text">Acesse facilmente as normas e o histórico de mudanças.</p>
+      </header>
+
+      <div class="card">
+        <p>Para visualizar os documentos, clique nos links abaixo.</p>
+        <ul class="link-list">
+          <li><a href="#" onclick="openModal('Regimento Interno', 'Conteúdo demonstrativo do Regimento Interno.')">Regimento Interno</a></li>
+          <li><a href="#" onclick="openModal('Normas de Convivência', 'Conteúdo demonstrativo das Normas de Convivência.')">Normas de Convivência</a></li>
+        </ul>
+
+        <h3 class="mt-12">Histórico de Mudanças</h3>
+        <ul id="historico-mudancas" class="list-compact small-text">
+          <li>Mudança em 01/10/2023: Adição de regra sobre uso de celulares.</li>
+          <li>Mudança em 15/09/2023: Atualização no horário de entrada.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CANAL ABERTO -->
+    <section id="canal-aberto" class="section">
+      <header class="section-header">
+        <h2>Canal Aberto: Sua Voz Importa</h2>
+        <p class="small-text">Envie sugestões e acompanhe o status das propostas.</p>
+      </header>
+
+      <div class="card grid-2">
+        <div>
+          <form id="form-feedback" class="form-vertical" novalidate>
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+            <span id="nome-error" class="error" aria-live="polite"></span>
+
+            <label for="sugestao">Sugestão ou Feedback</label>
+            <textarea id="sugestao" name="sugestao" rows="4" placeholder="Conte-nos sua sugestão" required></textarea>
+            <span id="sugestao-error" class="error" aria-live="polite"></span>
+
+            <button type="submit" class="btn-primary"><i class="fas fa-paper-plane" aria-hidden="true"></i> Enviar</button>
+          </form>
+        </div>
+
+        <div>
+          <h3>Status de Sugestões</h3>
+          <ul id="status-sugestoes" class="list-compact small-text">
+            <li>Sugestão de novo bebedouro: Em Análise.</li>
+            <li>Sugestão de horários flexíveis: Aprovada.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>Comunica Escola | Desenvolvido por Iniciativa Discente</p>
+      <div class="footer-actions">
+        <small class="muted">contato@escola.exemplo</small>
+        <button id="back-to-top" class="btn-ghost" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i> Voltar ao Topo</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()" aria-label="Fechar modal">&times;</button>
+      <h3 id="modal-title"></h3>
+      <div id="modal-content" class="modal-body">Conteúdo do documento aqui. Em uma versão real, exiba um PDF.</div>
+    </div>
+  </div>
+
+  <!-- Script atualizado -->
+  <script src="script.js"></script>
 </body>
 </html>
